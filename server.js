@@ -1,6 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const db = require('./db')
+const url = 'mongodb+srv://user:user1234@cluster0.lftui.mongodb.net/messages?retryWrites=true&w=majority'
+db(url)
+
 const router = require('./network/routes')
 
 var app = express();

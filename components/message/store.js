@@ -1,12 +1,4 @@
-const db = require('mongoose')
 const Model = require('./model')
-const MONGO_URI = 'mongodb+srv://user:user1234@cluster0.lftui.mongodb.net/messages?retryWrites=true&w=majority'
-
-db.Promise = global.Promise;
-
-db.connect(MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>{console.log('[db] Conectada con exito')})
-    .catch(err => console.error('[db]', err));
 
 function addMessage(message){
     console.log('Mensaje añadido')
@@ -29,9 +21,14 @@ async function updateText(id, message){
     const newMessage = await foundMessage.save()
     return newMessage;
 }
+function removeMessage(id){
+    return Model.deleteOne({
+        _id: id
+    })
+}
 module.exports = {
     add: addMessage,
     list: getMessage,
-    updateText: updateText
-    //delete
+    updateText: updateText,
+    remove: removeMessage
 }
