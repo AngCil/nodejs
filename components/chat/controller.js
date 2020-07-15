@@ -13,5 +13,6 @@ function listChats(userId){
     return store.list(userId)
 }
 module.exports = {
-    
+    addChat,
+    listChats
 }
