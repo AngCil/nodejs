@@ -12,7 +12,6 @@ router.post('/',(req, res)=>{
             response.error(req,res, 'Internal Error' , 500, e)
         })
 }) 
-
 router.get('/:userId',(req, res)=>{
     controller.listChats(req.params.userId)
         .then((users)=>{

@@ -7,7 +7,7 @@ function addChat(chat){
 }
 function listChats(userId){
     return new Promise((resolve, reject)=>{
-        let filter = {}
+        let filter = []
         if(userId){
             filter = {
                 users: userId,
@@ -26,6 +26,6 @@ function listChats(userId){
 }
 
 module.exports = {
-    addChat,
-    listChats
+    add: addChat,
+    list: listChats
 }
